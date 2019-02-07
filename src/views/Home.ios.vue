@@ -9,24 +9,29 @@
   </Page>
 </template>
 <script>
-  import { Page, ActionBar, GridLayout } from 'nativescript-vue-web';
+  import HelloWorld from 'components/HelloWorld';
+
   export default {
+    name: 'home',
     components: {
-      Page,
-      ActionBar,
-      GridLayout
+      HelloWorld
     },
     data() {
       return {
-        navbarTitle: 'App.vue',
-        msg: 'Mode=' + TNS_APP_MODE + ' and Platform=' + TNS_APP_PLATFORM;
+        navbarTitle: 'Home.ios.vue',
+        msg: 'Mode=' + TNS_APP_MODE + ' and Platform=' + TNS_APP_PLATFORM
       };
-    },
+    }
   };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-  .nvw-action-bar {
+<style scoped>
+  ActionBar {
     color: #42b983;
+  }
+  
+  Image {
+    height: 50%;
+    width: 50%;
   }
 </style>
