@@ -6,6 +6,17 @@
     </div>
   </div>
 </template>
+
+<template-native>
+  <Page>
+    <ActionBar :title="navbarTitle"/>
+    <GridLayout rows="auto, auto">
+      <Button text="Home" @tap="goToHomePage" row="0"/>
+      <Button text="About" @tap="goToAboutPage" row="1"/>
+    </GridLayout>
+  </Page>
+</template-native>
+
 <script>
   import HelloWorld from 'components/HelloWorld';
   export default {
@@ -20,6 +31,7 @@
     },
   };
 </script>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .w-page {
@@ -50,7 +62,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .w-container {
     height: 100%;
     width: 100%;

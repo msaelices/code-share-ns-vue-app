@@ -194,6 +194,14 @@ module.exports = env => {
                         compiler: NsVueTemplateCompiler,
                     },
                 },
+                // this rule applies to <template-native> blocks when is native
+                {
+                  loader: 'vue-custom-template-loader',
+                  resourceQuery: (query) => {
+                    let regex = /blockType=template-native/
+                    return query.match(regex) && process.env.VUE_APP_MODE === 'native'
+                  }
+                }
             ],
         },
         plugins: [
