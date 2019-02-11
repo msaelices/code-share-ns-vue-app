@@ -1,7 +1,7 @@
 <template>
   <div class="w-page">
     <div class="w-container">
-      <img src="~/assets/logo.png" alt="logo" height="20%" width="20%">
+      <img src="~/assets/logo.png" alt="logo" height="20%" width="20%" />
       <HelloWorld :msg="msg"/>
     </div>
   </div>
@@ -19,6 +19,9 @@
 
 <script>
   import HelloWorld from 'components/HelloWorld';
+  import Home from '~/views/Home';
+  import About from '~/views/About';
+
   export default {
     name: 'home',
     components: {
@@ -26,14 +29,28 @@
     },
     data() {
       return {
+        navbarTitle: 'App native',
         msg: 'Mode=' + TNS_APP_MODE + ' and Platform=' + TNS_APP_PLATFORM,
       };
     },
+    methods: {
+      goToHomePage ()  {
+        this.$navigateTo(Home);
+      },
+      goToAboutPage () {
+        this.$navigateTo(About);
+      }
+    }
   };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+  ActionBar {
+    color: #42b983;
+    background-color: #000
+  }
+
   .w-page {
     height: 100%;
     width: 100%;
