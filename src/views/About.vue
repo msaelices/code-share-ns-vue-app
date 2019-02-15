@@ -1,5 +1,10 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="w-page">
+    <div class="w-container">
+      <span>This is an about page</span>
+    </div>
   </div>
 </template>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
