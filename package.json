@@ -17,6 +17,7 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
+    "vue-cli-plugin-nativescript-vue": "git+https://github.com/msaelices/vue-cli-plugin-nativescript-vue.git",
     "vue-template-compiler": "^2.5.21"
   }
 }
