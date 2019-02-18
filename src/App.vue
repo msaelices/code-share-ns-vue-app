@@ -1,31 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <Page>
+    <ActionBar :title="navbarTitle"/>
+    <GridLayout rows="auto, auto">
+      <Button text="Home" @tap="goToHomePage" row="0"/>
+      <Button text="About" @tap="goToAboutPage" row="1"/>
+    </GridLayout>
     <router-view/>
-  </div>
+  </Page>
 </template>
+<script>
+  const appMode = process.env.VUE_APP_MODE;
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  export default {
+    data() {
+      return {
+        navbarTitle: `App.${appMode}.vue`,
+      };
+    },
+    methods: {
+      goToHomePage() {
+        this.$router.push('/');
+      },
+      goToAboutPage() {
+        this.$router.push('about');
+      },
+    },
+  };
+</script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style web>
+  .nvw-action-bar {
+    color: #42b983;
+  }
+</style>
+<style native>
+  ActionBar {
+    background-color: #42b983;
+    color: white;
+  }
 </style>
