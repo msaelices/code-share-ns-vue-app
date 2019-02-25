@@ -33,11 +33,11 @@
   export default class App extends Vue {
     private navbarTitle: string = `App.vue`;
 
-    goToHomePage() {
+    public goToHomePage() {
       Vue.prototype.$navigateTo(Home);
     }
 
-    goToAboutPage() {
+    public goToAboutPage() {
       Vue.prototype.$navigateTo(About);
     }
   }
