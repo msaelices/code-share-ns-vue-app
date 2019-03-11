@@ -10,6 +10,7 @@
   "dependencies": {
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
+    "vue-cli-plugin-nativescript-vue": "file:../../../nativescript-repos/vue-cli-plugin-nativescript-vue",
     "vue-property-decorator": "^7.0.0"
   },
   "devDependencies": {
