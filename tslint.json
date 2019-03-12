@@ -5,15 +5,33 @@
   ],
   "linterOptions": {
     "exclude": [
-      "node_modules/**"
+      "node_modules/**",
+      "dist/**",
+      "platforms/**",
+      "hooks/**",
+      "app/App_Resources/**"
     ]
   },
   "rules": {
-    "quotemark": [true, "single"],
-    "indent": [true, "spaces", 2],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "platforms",
+    "hooks",
+    "app/App_Resources"
+  ]
 }
