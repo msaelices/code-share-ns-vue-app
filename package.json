@@ -10,7 +10,6 @@
   "dependencies": {
     "vue": "^2.6.6",
     "vue-class-component": "^6.0.0",
-    "vue-cli-plugin-nativescript-vue": "file:../../../nativescript-repos/vue-cli-plugin-nativescript-vue",
     "vue-property-decorator": "^7.0.0",
     "vuex": "^3.0.1"
   },
@@ -27,6 +26,7 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "typescript": "^3.2.1",
+    "vue-cli-plugin-nativescript-vue": "file:../../../nativescript-repos/vue-cli-plugin-nativescript-vue",
     "vue-template-compiler": "^2.5.21"
   }
 }
