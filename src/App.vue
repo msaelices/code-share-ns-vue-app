@@ -1,31 +1,63 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<template web>
+  <div class="w-page">
+    <nav>
+      <ul class="w-navbar">
+        <li class="w-title" :text="navbarTitle">{{navbarTitle}}</li>
+      </ul>
+    </nav>
+    <div class="w-container">
+      <router-link tag="button" class="w-button" id="homeButton" to="/">Home</router-link>
+      <!-- alternate way to route manually and use the same method as native -->
+      <button class="w-button" id="aboutButton" v-on:click="goToAboutPage">About</button>
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
+<template native>
+  <Page>
+    <ActionBar :title="navbarTitle"/>
+    <GridLayout rows="auto, auto">
+      <Button text="Home" @tap="goToHomePage" row="0"/>
+      <Button text="About" @tap="goToAboutPage" row="1"/>
+    </GridLayout>
+  </Page>
+</template>
+<script lang="ts">
+  import { Component, Vue } from 'vue-property-decorator';
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+  const { VUE_APP_MODE } = process.env;
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  @Component({
+    name: 'home',
+  })
+  export default class App extends Vue {
+    private navbarTitle: string = `App.vue`;
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
+    public goToHomePage() {
+      this.goTo('home');
+    }
+
+    public goToAboutPage() {
+      this.goTo('about');
+    }
+
+    public goTo(route) {
+      VUE_APP_MODE === 'web' ? this.$router.push(route) : Vue.prototype.$navigator.navigate(route);
+    }
+  }
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style web>
+  @import '~styles/style-one';
+
+  .w-page {
+    height: 100%;
+    width: 100%;
+  }
+</style>
+<style native>
+  @import '~styles/style-one';
 </style>
